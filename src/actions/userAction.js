@@ -1,6 +1,5 @@
 "use server";
 
-import { FollowsScalarFieldEnum } from "@/generated/prisma/internal/prismaNamespace";
 import { prisma } from "@/lib/prisma";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
@@ -48,10 +47,21 @@ export async function getUserByClerkId(clerkId) {
       _count: {
         select: {
           followers: true,
-          following:true,
-          posts:true
+          following: true,
+          posts: true,
         },
       },
     },
   });
+}
+
+export async function getDbUserId() {
+  const { userId: clerkId } = await auth();
+  if (!clerkId) return null;
+
+  const user = await getUserByClerkId(clerkId);
+
+  if (!user) throw new Error("User not found");
+
+  return user.id;
 }

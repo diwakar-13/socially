@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Sidebar from "@/components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
                 </div>
               </main>
             </div>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
