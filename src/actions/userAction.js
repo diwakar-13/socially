@@ -2,9 +2,9 @@
 
 import { prisma } from "@/lib/prisma";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { th } from "date-fns/locale";
+
 import { revalidatePath } from "next/cache";
-import { createOpaqueFallbackRouteParams } from "next/dist/server/request/fallback-params";
+
 
 export async function syncUser() {
   try {
@@ -115,6 +115,8 @@ export async function getRandomUsers() {
 export async function toggleFollow(targetUserId) {
   try {
     const userId = await getDbUserId();
+
+    if(!userId) return ;
 
     if (userId === targetUserId) throw new Error("You can't follow yourself");
 
