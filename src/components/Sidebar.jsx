@@ -17,7 +17,7 @@ const Sidebar = async () => {
   if (!user) return null;
 
   return(
-     <div className="sticky top-20">
+     <div className=" top-20">
       <Card>
         <CardContent className="pt-6">
           <div className="flex flex-col items-center text-center">

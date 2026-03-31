@@ -7,12 +7,15 @@ import FollowButton from "./FollowButton";
 
 async function WhoToFollow() {
   const users = await getRandomUsers();
-  if (users.length === 0) return (<Card>
-      <CardHeader>
-        <CardTitle className="text-center my-10">No user found</CardTitle>
-      </CardHeader>
-      
-  </Card>);
+  if (users.length === 0)
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Suggestions</CardTitle>
+          <h1 className="text-center my-10">No user found</h1>
+        </CardHeader>
+      </Card>
+    );
 
   return (
     <Card>

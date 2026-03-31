@@ -73,7 +73,7 @@ const PostCard = ({ post, dbUserId }) => {
     <Card className="overflow-hidden">
       <CardContent className="p-4 sm:p-6">
         <div className="space-y-4">
-          <div className="flex space-x-3 sm:space-x-4">
+          <div className="flex  space-x-3 sm:space-x-4">
             <Link href={`/profile/${post.author.username}`}>
               <Avatar className="size-8 sm:w-10 sm:h-10">
                 <AvatarImage src={post.author.image ?? "/avatar.png"} />
@@ -81,16 +81,16 @@ const PostCard = ({ post, dbUserId }) => {
             </Link>
 
             {/* POST HEADER & TEXT CONTENT */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1  min-w-0">
               <div className="flex items-start justify-between">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate">
+                <div className="flex flex-col sm:flex-col    sm:space-x-2 truncate">
                   <Link
                     href={`/profile/${post.author.username}`}
-                    className="font-semibold truncate"
+                    className="font-semibold  truncate"
                   >
                     {post.author.name}
                   </Link>
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <div className="flex space-x-2 text-sm text-muted-foreground">
                     <Link href={`/profile/${post.author.username}`}>
                       @{post.author.username}
                     </Link>
@@ -172,7 +172,7 @@ const PostCard = ({ post, dbUserId }) => {
 
           {/* COMMENTS SECTION */}
           {showComments && (
-            <div className="space-y-4 pt-4 border-t">
+            <div className=" space-y-4 pt-4 border-t">
               <div className="space-y-4">
                 {/* DISPLAY COMMENTS */}
                 {post.comments.map((comment) => (
@@ -206,18 +206,18 @@ const PostCard = ({ post, dbUserId }) => {
                   <Avatar className="size-8 shrink-0">
                     <AvatarImage src={user?.imageUrl || "/avatar.png"} />
                   </Avatar>
-                  <div className="flex-1">
+                  <div className="flex w-full gap-1 ">
                     <Textarea
                       placeholder="Write a comment..."
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
-                      className="min-h-[80px] resize-none"
+                      className="min-h-[30px] resize-none"
                     />
-                    <div className="flex justify-end mt-2">
+                    {/* <div className="flex justify-end mt-2"> */}
                       <Button
-                        size="sm"
+                        size="lg"
                         onClick={handleAddComment}
-                        className="flex items-center gap-2"
+                        className="flex  items-center gap-2 px-3"
                         disabled={!newComment.trim() || isCommenting}
                       >
                         {isCommenting ? (
@@ -225,11 +225,11 @@ const PostCard = ({ post, dbUserId }) => {
                         ) : (
                           <>
                             <SendIcon className="size-4" />
-                            Comment
+                            
                           </>
                         )}
                       </Button>
-                    </div>
+                    {/* </div> */}
                   </div>
                 </div>
               ) : (

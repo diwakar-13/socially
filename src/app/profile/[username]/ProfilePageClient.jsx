@@ -86,7 +86,7 @@ function ProfilePageClient({
                 <p className="mt-2 text-sm">{user.bio}</p>
 
                 {/* PROFILE STATS */}
-                <div className="w-full mt-6">
+                <div className="w-full mt-6 px-4">
                   <div className="flex justify-between mb-4">
                     <div>
                       <div className="font-semibold">{user._count.following.toLocaleString()}</div>
