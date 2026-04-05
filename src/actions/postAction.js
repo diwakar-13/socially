@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getDbUserId } from "./userAction";
+import { prisma } from "@/lib/prisma";
 
 export async function createPost(content, imageUrl) {
   try {
