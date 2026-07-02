@@ -25,6 +25,7 @@ function ImageUpload({ endpoint, onChange, value }) {
   return (
     <UploadDropzone
       endpoint={endpoint}
+      config={{ mode: "auto" }}
       onClientUploadComplete={(res) => {
         onChange(res?.[0].url);
       }}
