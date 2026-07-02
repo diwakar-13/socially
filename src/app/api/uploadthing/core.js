@@ -7,7 +7,7 @@ export const ourFileRouter = {
   // define routes for different upload types
   postImage: f({
     image: {
-      maxFileSize: "4MB",
+      maxFileSize: "25MB",
       maxFileCount: 1,
     },
   })

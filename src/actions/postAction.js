@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { getDbUserId } from "./userAction";
 import { prisma } from "@/lib/prisma";
 
+
 export async function createPost(content, imageUrl) {
   try {
     const userId = await getDbUserId();
@@ -69,6 +70,7 @@ export async function getPosts() {
 
     return posts;
   } catch (error) {
+    console.error("Error in getPosts", error);
     console.log("Error in getPosts", error);
     throw new Error("Failed to fetch posts");
   }
