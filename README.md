@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# socially
+[![Next.js](https://img.shields.io/badge/Next.js-12%2B-blue)](https://nextjs.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-blue)](https://tailwindcss.com)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-0A2E7F)](https://www.prisma.io)
 
-## Getting Started
+## Introduction
+socially is a modern web application built with Next.js, React, Tailwind CSS, and Prisma. It delivers a fast, accessible, and scalable social platform with a responsive UI and a robust database layer. Leveraging Next.js App Router for routing, Tailwind CSS for styling, and Prisma for data access, the project emphasizes developer experience, performance, and clean separation of concerns between frontend components and backend data operations.
 
-First, run the development server:
+## features
+- Server-rendered and client-driven UI using Next.js and React
+- Tailwind CSS-based responsive, accessible styling
+- Prisma ORM for type-safe database access and migrations
+- Lightweight API routes and server components for clean data access patterns
+- Modular, extensible component architecture suitable for rapid feature development
+- Solid developer experience with hot reloading and fast feedback loops
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## installation
+### Prerequisites
+- Node.js 16.x or newer
+- npm 6.x or newer (or yarn)
+- Git
+
+### Quick start
+```
+git clone https://example.com/your/repo.git
+cd socially
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Tailwind CSS setup (if not already configured)
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Prisma setup (if using Prisma)
+```
+npx prisma generate
+npx prisma migrate dev --name init
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Start development server
+```
+npm run dev
+```
 
-## Learn More
+### Production build
+```
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## usage
+### Run locally
+```
+npm run dev
+```
+Then open http://localhost:3000 in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Build and run in production
+```
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Environment variables (example)
+| Variable | Purpose | Example |
+|---|---|---|
+| DATABASE_URL | Database connection string used by Prisma | postgres://USER:PASSWORD@HOST:PORT/DATABASE |
+| NEXT_PUBLIC_API_BASE_URL | Base URL for any client-side API requests | http://localhost:3000 |
